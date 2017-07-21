@@ -1,0 +1,45 @@
+#1
+
+So there are two parts to this app: A client piece and a server piece.
+
+The top 3 features use aspects from both the client and the server.
+
+** show bower.json in client dir **
+So to start, the first thing you will want to do after cloning the repo is to run bower install to install the dependent packages.
+
+Bower looks at the bower.json file and installs all the dependencies listed there. This is very similar to the NPM package.json file format so if you are familiar with that, you should be fine with bower.
+
+The minimum dependencies for a pub nub app are just the pubnub sdk and the pubnub angular toolkit. The rest are just for this particular app.
+Of course it is likely you will also install jQuery and LoDash and a few others, but that is up to your individual app.
+
+*** show the grunt file ***
+After installing the dependencies, you will want to do a build. We use the Grunt builder to do this. Looking at the configuration file for grunt, we see that we can do a build as a separate step or we can build as part of running the server. You should probably do a build first as a separate step and then run the server, at least the first time. After that, you can just run the server.
+
+Before you run the client server, you will want to update the config file with your specific keys. 
+
+** show the config file and explain  … go to the pub nub url to show how to configure the app **
+
+Now to run the server, just run ‘grunt serve’. This will run the app and open a tab in your browser to the right URL for the app.
+
+Now we have to get the server running
+
+** switch to the server directory **
+
+** show the package.json **
+
+This is also pretty easy. Just run npm install from the command line and it will install your dependencies for the server.
+
+Before running the server, you will want to update the server config file which is the .env file in the root of the server
+
+** show .env ***
+
+Then you can run the server by typing npm start
+
+Let’s look a bit at the server implementation.
+
+** open app.js on server **
+
+Looking at where we initialize the pubnub library, we see we pass in the pub nub secret key that we put in our .env file. This was the one thing we didn’t put in the client side config file.
+
+This tells pub nub that the server-side instance of the pub nub library is being created as the authorization authority which is able to grant access to channels for specific users.
+

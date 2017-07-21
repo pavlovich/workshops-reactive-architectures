@@ -1,0 +1,8 @@
+/node_modules
+/dist
+/.tmp
+/.sass-cache
+/bower_components
+/app/constants.config.js
+/app/styles/style.css
+/config.json

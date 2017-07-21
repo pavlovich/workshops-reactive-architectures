@@ -1,0 +1,52 @@
+Overview of initialization of app
+
+Start with index
+    show loading of libraries at top
+    show loading of JS files
+        app.js
+        app.routes.js
+        app.config.js
+        various service files.
+
+Angular app lives in the app directory
+    assets hold the static resources like images
+    components hold the directives and associated views
+    services hold the means of integrating with external resources including pubnub and our backend server.
+    shared holds directives shared between components
+    styles hold CSS
+    views hold top-level views which reference components/directives
+
+** app.js **
+show angular module definition
+    note the injection of the pubnub service.
+
+** app.routes **
+show the various routes and how it calls out to ensure authentication or redirects to login page.
+
+** app.config **
+mention app.run === the 'main' function for an angular app.
+show it initializing the pubnub library with the keys
+talk about heartbeat IN SECONDS (client ping interval) and 
+   heartbeat-interval (pubnub timeout for 'presence' indicator)
+Mention adjusting for mobile clients etc.
+
+The initialized pubnub library is then injected into various angular services where it is used.
+Let's look at one of them, the message factory.
+
+There are a number of ways we could send messages in pubnub, but using a factory to
+ abstract away the interactions with the pubnub library is a smart way to go.
+
+** open services/message-factory.js ** 
+$pubnubChannel is an injected service which wraps a pubnub channel as an angular service
+         which automatically subscribes you to a channel or group of channels and 
+         presents the list of available messages as an array-like object to angular.
+here we extend it to add a new method which allows us to send a message by including the
+logged in user info as well as the passed in message text.
+
+We then use the extended service to subscribe to a channel while 
+  enabling the history feature on that channel asking for the 
+  last 20 messages to be preloaded for the new subscription.
+
+
+** views/chat.html **
+show how the other components are referenced in here.

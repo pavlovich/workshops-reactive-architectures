@@ -1,0 +1,15 @@
+{
+  "extends": "airbnb/legacy",
+  "rules": {
+    "no-console": 0,
+    "comma-dangle": 0,
+    "func-names": 0,
+    "vars-on-top": 0,
+    "no-use-before-define": 0,
+    "space-before-function-paren": 0,
+    "max-len": [1, 80, 4, {"ignoreComments": true, "ignoreUrls": true}],
+    "no-param-reassign": 0,
+    "quote-props": 0,
+    "wrap-iife": [2, "inside"]
+  }
+}

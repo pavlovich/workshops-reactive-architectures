@@ -1,0 +1,300 @@
+/*--------------------- Typography ----------------------------*/
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('https://mozorg.cdn.mozilla.net/media/fonts/OpenSans-Light-webfont.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('https://mozorg.cdn.mozilla.net/media/fonts/OpenSans-Semibold-webfont.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('https://mozorg.cdn.mozilla.net/media/fonts/OpenSans-LightItalic-webfont.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('https://mozorg.cdn.mozilla.net/media/fonts/OpenSans-Regular-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('https://mozorg.cdn.mozilla.net/media/fonts/OpenSans-Bold-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('https://mozorg.cdn.mozilla.net/media/fonts/OpenSans-Italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+/*--------------------- Layout ----------------------------*/
+html {
+  height: 100%;
+}
+
+a {
+  color: #0c99d5;
+}
+
+body {
+  font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  color: #30404f;
+  margin: 0; padding: 0;
+  height:100%;
+}
+
+#tabzilla {
+  width: 147px;
+  margin: 0 auto;
+  float: none;
+  opacity: 0;
+}
+
+.loaded #tabzilla {
+  transition: opacity .3s;
+  opacity: 1;
+}
+
+.loaded #tabzilla:before {
+  background: #333;
+  transition: background .3s;
+}
+
+.tip {
+  font-style:italic;
+}
+
+.book {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.book nav {
+  font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  position: absolute;
+  top: 0;
+  left: -300px;
+  bottom: 0;
+  z-index: 1;
+  width: 300px;
+  color: #364149;
+  background: rgba(209, 210, 211, 0.3); /* #d1d2d3 */
+  border-right: 1px solid rgba(86, 86, 90, 0.2); /* #56565a */
+}
+
+@media (min-width: 600px) {
+  .book.with-nav main {
+    left: 300px;
+  }
+  .book main {
+    transition: left 250ms ease;
+  }
+  .book nav {
+    transition: left 250ms ease;
+  }
+}
+
+@media (max-width: 600px) {
+  .book nav {
+    width: calc(100% - 60px);
+    left: -100%;
+    transition: left 250ms ease;
+  }
+  .book.with-nav main {
+    transform: translate(calc(100% - 60px),0px);
+  }
+  .book main {
+    transition: transform 250ms ease;
+  }
+}
+
+.book.with-nav nav {
+  left: 0;
+}
+
+.book nav ul.recipes li:not(.category) a,
+.book nav ul.recipes li.category a {
+  display: block;
+  padding: 6px 20px;
+  color: #56565a;
+}
+
+.book nav ul.recipes li:not(.category) a:hover,
+.book nav ul.recipes li:not(.category) a:active,
+.book nav ul.recipes li:not(.category) a:focus {
+  background: rgba(111, 190, 74, 0.3); /* #6fbe4a */
+}
+
+.book nav ul.recipes li.category {
+  padding: 20px 10px 3px;
+  font: 20px "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif bold;
+  color: #000;
+}
+
+.book nav ul.recipes li span {
+  font: bold 15px Arial, sans-serif;
+  line-height: 1.1;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  padding: 7px;
+  color: white;
+  border-radius: 50%;
+  margin-right: 3px;
+  display: inline-block;
+}
+
+.ball-difficulty-1 {
+  background: #6fbe4a;
+}
+
+.ball-difficulty-2 {
+  background: #f18a21;
+}
+
+.ball-difficulty-3 {
+  background: #c33b32;
+}
+
+nav .recipes-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+nav ul.recipes {
+  list-style: none;
+  padding-top: 20px;
+}
+
+nav ul.recipes li {
+  list-style: none;
+}
+
+.book main {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  background: #fff;
+}
+
+.book main .main-inner {
+  padding: 40px 40px 40px 20px;
+}
+
+.book main .main-inner ul {
+  margin-left: 40px;
+}
+
+h1 {
+  color: #6fbe4a;
+  line-height: 1;
+}
+
+h2 {
+  margin: 40px 0 0 0;
+  color: #e55525;
+}
+
+iframe {
+  border: 0;
+}
+
+.book main .text-page {
+  max-width: 800px;
+}
+
+#navToggle {
+  color: #999;
+  background-color: #fff;
+  border-color: #fff;
+  padding: 1.25rem;
+  margin: 0;
+}
+
+#navToggle:hover {
+  color: #000;
+}
+
+.nav-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.nav-top .tabs {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.nav-top .item {
+  font-size: 14px;
+  display: flex;
+}
+
+.demo-launch {
+  padding: 0;
+  margin: 0;
+  opacity: 0.5;
+  background: transparent;
+  line-height: 1;
+}
+
+.demo-launch:hover,
+.demo-launch:active,
+.demo-launch:focus {
+  background: transparent;
+  trasition: opacity 1s;
+  opacity: 0.7;
+}
+
+.nav-top a {
+  padding: .4rem .8rem;
+  color: #999;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-top a:hover:not(.active) {
+  border-bottom-color: #d1d2d3;
+  color: inherit;
+  background: rgba(209, 210, 211, 0.3); /* #d1d2d3 */
+}
+
+.nav-top .active, nav a.active {
+  color: inherit;
+}
+
+nav a.active {
+  background: rgba(111, 190, 74, 0.3); /* #6fbe4a */
+}
+
+.nav-top .active {
+  background: rgba(111, 190, 74, 0.3); /* #6fbe4a */
+  border-bottom: 2px solid #6fbe4a;
+}
